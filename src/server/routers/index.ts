@@ -1,1 +1,1 @@
-// tRPC server routers exports
+export * from './authorization'

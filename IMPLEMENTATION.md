@@ -19,7 +19,7 @@
 - [x] P1.2 — Claude extraction prompt engineered and tested against 3 sample documents (Completed 2026-08-31)
 - [x] P1.3 — extract-clinical-data.ts complete with confidence scoring (Completed 2026-08-31)
 - [x] P1.4 — validate-completeness.ts complete (Completed 2026-08-31)
-- [ ] P1.5 — generate-pa-form.ts complete (Texas STAR+PLUS)
+- [x] P1.5 — generate-pa-form.ts complete (Texas STAR+PLUS) (Completed 2026-08-31)
 - [ ] P1.6 — write-justification.ts complete
 - [ ] P1.7 — write-appeal-letter.ts complete
 
@@ -33,8 +33,8 @@
 - [ ] P3.1 — Document upload UI (drag-drop, S3, progress indicator)
 - [ ] P3.2 — Extraction review screen (shows extracted fields, confidence, correction UI)
 - [ ] P3.3 — Patient record creation from confirmed extraction
-- [ ] P3.4 — Pre-submission PA review screen (generated form preview, approval button)
-- [ ] P3.5 — React-PDF: TX STAR+PLUS PA packet generator
+- [x] P3.4 — Pre-submission PA review screen (generated form preview, approval button) (Completed 2026-08-31)
+- [x] P3.5 — React-PDF: TX STAR+PLUS PA packet generator (Completed 2026-08-31)
 
 ## PHASE 4 — Submission + Tracking
 - [ ] P4.1 — Twilio Fax API integration
@@ -65,4 +65,6 @@
 - [2026-08-31] P1.1 — Payer registry built (star-plus, uhc-texas, molina-texas, aetna-texas, humana-texas) (Created payer types, full Texas STAR+PLUS rules, UHC, Molina, Aetna, Humana configs, registry helper functions, and 8 Jest unit tests)
 - [2026-08-31] P1.2 — Claude extraction prompt engineered and tested against 3 sample documents (Engineered >600 word clinical extraction system prompt in src/ai/prompts/extraction.ts with confidence scoring rules and pitfall warnings)
 - [2026-08-31] P1.3 — extract-clinical-data.ts complete with confidence scoring (Built multi-document extraction pipeline powered by Claude 3.5 Sonnet, ICD-10 normalization, date parsing, Neon DB updates, and HIPAA audit logging)
-- [2026-08-31] P1.4 — validate-completeness.ts complete (Created payer completeness validator with actionable human-readable coordinator warning messages)
+- [2026-08-31] P1.5 — generate-pa-form.ts complete (Texas STAR+PLUS) (Built PA form generator producing PAFormFields JSON and 500+ word clinical medical necessity narrative, saved to Neon DB with HIPAA audit logging)
+- [2026-08-31] P3.4 — Pre-submission PA review screen (Created 2-column pre-submission review screen at src/app/(dashboard)/authorizations/[id]/review/page.tsx with confidence indicators, warning boxes, editable justification text, and time saved metrics)
+- [2026-08-31] P3.5 — React-PDF: TX STAR+PLUS PA packet generator (Created 4-page medical document PDF generator in src/lib/pdf-generator.tsx featuring Cover Sheet, PA Request Form, Medical Necessity Justification, and Supporting Enclosures Checklist)

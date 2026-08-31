@@ -6,5 +6,6 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  transformIgnorePatterns: ['/node_modules/(?!@react-pdf/renderer)'],
   testMatch: ['**/__tests__/**/*.test.ts'],
 }

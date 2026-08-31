@@ -41,3 +41,27 @@ export interface DenialCode {
   appeal_strategy: string    // what to include in appeal letter for this code
   typical_overturn_rate: number  // 0.0-1.0, used to set coordinator expectations
 }
+
+export interface PAFormFields {
+  member_name: string
+  medicaid_id: string
+  dob: string
+  primary_icd10: string
+  primary_icd10_description: string
+  secondary_icd10: string[]
+  requesting_npi: string
+  requesting_provider_name: string
+  requesting_provider_address: string
+  requesting_provider_phone: string
+  servicing_npi?: string
+  service_type: string
+  procedure_code: string
+  requested_hours_per_week: string
+  start_date: string
+  end_date: string
+  homebound_status: boolean
+  homebound_reason: string
+  oasis_assessment_date?: string
+  physician_signature_date?: string
+  medical_necessity_justification: string
+}
