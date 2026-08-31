@@ -83,7 +83,7 @@ async function fetchDocumentFromS3(s3Key: string): Promise<{ buffer: Buffer; mim
 }
 
 /**
- * Core clinical document extraction pipeline powered by Claude 3.5 Sonnet.
+ * Core clinical document extraction pipeline powered by claude-sonnet-4-6.
  */
 export async function extractClinicalData(
   params: ExtractClinicalDataParams

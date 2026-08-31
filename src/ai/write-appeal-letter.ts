@@ -26,7 +26,7 @@ const anthropic = new Anthropic({
 })
 
 /**
- * Generates a formal, clinical prior authorization denial appeal letter powered by Claude 3.5 Sonnet.
+ * Generates a formal, clinical prior authorization denial appeal letter powered by claude-sonnet-4-6.
  */
 export async function generateAppealLetter(
   params: AppealLetterParams

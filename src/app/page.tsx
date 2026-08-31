@@ -29,9 +29,9 @@ export default function Home() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <a href="#get-started" className="text-xs text-[#8B98A8] hover:text-[#F0F6FC] transition hover:underline">
+            <Link href="/demo-booked" className="text-xs text-[#8B98A8] hover:text-[#F0F6FC] transition hover:underline">
               Book a Demo
-            </a>
+            </Link>
             <Link
               href="/demo"
               className="bg-[#162035] hover:bg-[#2A4060] text-[#2DD4BF] border border-[#2A4060] text-xs font-bold px-4 py-2.5 rounded-xl transition"
@@ -152,7 +152,7 @@ export default function Home() {
                 3-Step Patient Upload Wizard
               </h4>
               <p className="text-xs text-[#8B98A8] leading-relaxed">
-                Drag-and-drop OASIS assessment forms, CMS-485 orders, and clinical notes for instant Claude 3.5 Sonnet extraction.
+                Drag-and-drop OASIS assessment forms, CMS-485 orders, and clinical notes for instant Claude AI extraction.
               </p>
               <div className="text-xs font-bold text-[#2DD4BF] pt-2">Start New Wizard →</div>
             </Link>
@@ -376,11 +376,12 @@ export default function Home() {
 
       {/* FOOTER & HIPAA COMPLIANCE */}
       <footer className="border-t border-[#1E3050] py-10 px-6 text-center text-xs text-[#6B7280] space-y-3">
-        <div className="flex justify-center space-x-6">
-          <Link href="/demo" className="hover:text-[#F0F6FC]">Sales Demo (/demo)</Link>
-          <Link href="/login" className="hover:text-[#F0F6FC]">Coordinator Login</Link>
-          <Link href="/onboarding" className="hover:text-[#F0F6FC]">Agency Onboarding</Link>
-          <Link href="/pricing" className="hover:text-[#F0F6FC]">Pricing</Link>
+        <div className="flex flex-wrap justify-center gap-6">
+          <Link href="/demo" className="hover:text-[#F0F6FC] transition">Sales Demo</Link>
+          <Link href="/login" className="hover:text-[#F0F6FC] transition">Coordinator Login</Link>
+          <Link href="/onboarding" className="hover:text-[#F0F6FC] transition">Agency Onboarding</Link>
+          <Link href="/pricing" className="hover:text-[#F0F6FC] transition">Pricing</Link>
+          <Link href="/analytics" className="hover:text-[#F0F6FC] transition">Analytics</Link>
         </div>
         <p>© 2026 AuthPilot, LLC. All Rights Reserved. Protected under HIPAA Privacy &amp; Security Rules (45 CFR Parts 160/164).</p>
       </footer>

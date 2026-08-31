@@ -184,7 +184,7 @@ export default function PricingPage() {
             </div>
 
             <Link
-              href="/login"
+              href="/demo-booked"
               className="w-full block text-center bg-[#162035] hover:bg-[#2A4060] text-[#2DD4BF] border border-[#2A4060] font-bold text-xs py-3.5 rounded-xl transition mt-6"
             >
               Book a Demo
@@ -266,8 +266,15 @@ export default function PricingPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#1E3050] py-8 px-6 text-center text-xs text-[#6B7280]">
-        <p>© 2026 AuthPilot, LLC. All Rights Reserved. Protected under HIPAA Privacy &amp; Security Rules.</p>
+      <footer className="border-t border-[#1E3050] py-8 px-6 text-center text-xs text-[#6B7280] space-y-3">
+        <div className="flex flex-wrap justify-center gap-6">
+          <Link href="/demo" className="hover:text-[#F0F6FC] transition">Sales Demo</Link>
+          <Link href="/login" className="hover:text-[#F0F6FC] transition">Coordinator Login</Link>
+          <Link href="/onboarding" className="hover:text-[#F0F6FC] transition">Agency Onboarding</Link>
+          <Link href="/pricing" className="hover:text-[#F0F6FC] transition">Pricing</Link>
+          <Link href="/analytics" className="hover:text-[#F0F6FC] transition">Analytics</Link>
+        </div>
+        <p>© 2026 AuthPilot, LLC. All Rights Reserved. Protected under HIPAA Privacy &amp; Security Rules (45 CFR Parts 160/164).</p>
       </footer>
     </div>
   )

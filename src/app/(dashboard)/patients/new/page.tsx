@@ -180,7 +180,7 @@ export default function NewAuthorizationPage() {
         <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-12 text-center space-y-6">
           <div className="w-16 h-16 rounded-full border-4 border-[#2DD4BF] border-t-transparent animate-spin mx-auto" />
           <div className="space-y-2">
-            <h2 className="text-xl font-bold text-[#F0F6FC]">Claude 3.5 Sonnet Extracting Clinical Fields...</h2>
+            <h2 className="text-xl font-bold text-[#F0F6FC]">Claude AI Extracting Clinical Fields...</h2>
             <p className="text-xs text-[#8B98A8]">
               Analyzing OASIS, CMS-485 orders, ICD-10 diagnosis codes, and calculating confidence scores.
             </p>
