@@ -89,3 +89,4 @@ AuthPilot — AI-Powered Prior Authorization Engine for Home Health Care Agencie
 - [2026-08-31] P6.1 — P6.4 — HIPAA Compliance Audit, BAA Template, Aptible Config, Pre-Deploy Script, E2E Test, and /demo Sales Route
 - [2026-08-31] Pricing Page — Transparent Pricing Page created at src/app/pricing/page.tsx (3 tier cards, ROI proof bar, interactive FAQ accordion, and navigation link updated)
 - [2026-08-31] Developer Content Removal — Developer content and GitHub links removed from landing page (src/app/page.tsx) and replaced with 3-step agency How It Works section
+- [2026-08-31] Analytics & ROI Updates — Converted 8-week approval trend to Recharts LineChart at src/app/(dashboard)/analytics/page.tsx and updated landing page ROI calculator at src/app/page.tsx to $30/hr coordinator rate ($562/mo) with highlighted Revenue Protected card

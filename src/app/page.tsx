@@ -10,7 +10,7 @@ export default function Home() {
   // Calculations for ROI calculator
   const minutesSavedPerPa = 45
   const totalHoursSaved = Math.round(((monthlyPaCount * minutesSavedPerPa) / 60) * 10) / 10
-  const laborCostSaved = Math.round(totalHoursSaved * 25) // $25/hr coordinator rate
+  const laborCostSaved = Math.round(totalHoursSaved * 30) // $30/hr coordinator market rate
   const revenueProtected = Math.round((monthlyPaCount * 0.12) * 3200) // $3,200 avg claim value for 12% denied claims
 
   return (
@@ -307,22 +307,23 @@ export default function Home() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#1E3050] text-center">
-            <div className="p-4 bg-[#0A1628] rounded-xl border border-[#1E3050]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#1E3050] text-center items-stretch">
+            <div className="p-4 bg-[#0A1628] rounded-xl border border-[#1E3050] flex flex-col justify-between">
               <div className="text-xs text-[#8B98A8]">Monthly Hours Saved</div>
               <div className="text-2xl font-extrabold text-[#F0F6FC]">{totalHoursSaved} Hours</div>
               <div className="text-[10px] text-[#8B98A8]">@ 45 mins saved per PA</div>
             </div>
 
-            <div className="p-4 bg-[#0A1628] rounded-xl border border-[#1E3050]">
+            <div className="p-4 bg-[#0A1628] rounded-xl border border-[#1E3050] flex flex-col justify-between">
               <div className="text-xs text-[#8B98A8]">Coordinator Labor Cost Saved</div>
               <div className="text-2xl font-extrabold text-[#2DD4BF]">${laborCostSaved.toLocaleString()}</div>
-              <div className="text-[10px] text-[#8B98A8]">@ $25/hr labor rate</div>
+              <div className="text-[10px] text-[#8B98A8]">@ $30/hr coordinator rate</div>
             </div>
 
-            <div className="p-4 bg-[#0A1628] rounded-xl border border-[#1E3050]">
-              <div className="text-xs text-[#8B98A8]">Denied Revenue Protected</div>
-              <div className="text-2xl font-extrabold text-emerald-400">${revenueProtected.toLocaleString()}</div>
+            {/* Prominent Denied Revenue Protected Card */}
+            <div className="p-5 bg-[#0A1628] rounded-xl border border-[#2DD4BF]/40 shadow-lg shadow-[#2DD4BF]/10 flex flex-col justify-between relative overflow-hidden">
+              <div className="text-[11px] font-bold text-[#2DD4BF] uppercase tracking-wider">Revenue Protected from Denials</div>
+              <div className="text-3xl font-extrabold text-emerald-400 my-1">${revenueProtected.toLocaleString()}</div>
               <div className="text-[10px] text-[#8B98A8]">@ $3,200 avg claim value</div>
             </div>
           </div>

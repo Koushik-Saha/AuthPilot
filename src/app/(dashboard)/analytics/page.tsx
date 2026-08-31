@@ -3,23 +3,33 @@
 import React from 'react'
 import Link from 'next/link'
 import { Logo } from '@/components/ui'
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ReferenceLine,
+} from 'recharts'
 
 export default function AnalyticsDashboardPage() {
   const kpis = [
     { label: 'First-Pass Approval Rate', value: '96.2%', change: '+8.4% vs industry', positive: true },
     { label: 'PAs Submitted This Month', value: '24', change: '+18% vs last month', positive: true },
     { label: 'Avg Days to Approval', value: '2.4 Days', change: '-4.6 days faster than cap', positive: true },
-    { label: 'Hours Saved This Month', value: '18.0 Hrs', change: '=$450 labor cost saved', positive: true },
+    { label: 'Hours Saved This Month', value: '18.0 Hrs', change: '=$540 labor cost saved', positive: true },
   ]
 
   const weeklyTrends = [
-    { week: 'Wk 1', rate: 88.5 },
-    { week: 'Wk 2', rate: 91.0 },
-    { week: 'Wk 3', rate: 89.2 },
-    { week: 'Wk 4', rate: 93.4 },
+    { week: 'Wk 1', rate: 88.1 },
+    { week: 'Wk 2', rate: 89.4 },
+    { week: 'Wk 3', rate: 91.2 },
+    { week: 'Wk 4', rate: 93.6 },
     { week: 'Wk 5', rate: 94.1 },
     { week: 'Wk 6', rate: 95.8 },
-    { week: 'Wk 7', rate: 96.0 },
+    { week: 'Wk 7', rate: 95.2 },
     { week: 'Wk 8', rate: 96.2 },
   ]
 
@@ -65,44 +75,79 @@ export default function AnalyticsDashboardPage() {
 
       {/* ROW 2 — TWO CHARTS SIDE BY SIDE */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* LEFT CHART — Weekly First-Pass Approval Rate */}
+        {/* LEFT CHART — Weekly First-Pass Approval Rate Line Chart */}
         <div className="lg:col-span-7 bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-sm font-bold text-[#F0F6FC]">Weekly First-Pass Approval Rate (8-Week Trend)</h2>
-              <p className="text-xs text-[#8B98A8]">Compared against Industry Benchmark (62.0%)</p>
+              <p className="text-xs text-[#8B98A8]">Compared against Industry Benchmark (62.0%) &amp; Target (90.0%)</p>
             </div>
-            <span className="text-xs font-mono text-[#2DD4BF] bg-[#162035] px-2.5 py-1 rounded-lg">
+            <span className="text-xs font-mono text-[#2DD4BF] bg-[#162035] px-2.5 py-1 rounded-lg border border-[#2DD4BF]/30">
               AuthPilot: 96.2%
             </span>
           </div>
 
-          <div className="h-48 flex items-end space-x-3 pt-6 px-2 relative border-b border-[#1E3050]">
-            {/* 62% Industry Benchmark Reference Line */}
-            <div className="absolute top-[38%] left-0 right-0 border-t border-dashed border-rose-500/50 flex items-center justify-between px-2">
-              <span className="text-[10px] text-rose-400 bg-[#0F2040] px-1 font-mono">Industry Avg 62%</span>
-            </div>
-
-            {weeklyTrends.map((t, idx) => (
-              <div key={idx} className="flex-1 flex flex-col items-center gap-2">
-                <div
-                  className="w-full bg-[#2DD4BF] rounded-t transition-all hover:bg-[#1A8C80]"
-                  style={{ height: `${(t.rate / 100) * 160}px` }}
+          <div className="h-56 pt-2">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={weeklyTrends} margin={{ top: 15, right: 20, left: -10, bottom: 5 }}>
+                <CartesianGrid stroke="#1E3050" strokeDasharray="3 3" vertical={false} />
+                <XAxis dataKey="week" stroke="#8B98A8" fontSize={11} tickLine={false} axisLine={{ stroke: '#1E3050' }} />
+                <YAxis
+                  domain={[75, 100]}
+                  stroke="#8B98A8"
+                  fontSize={11}
+                  tickFormatter={(val) => `${val}%`}
+                  tickLine={false}
+                  axisLine={{ stroke: '#1E3050' }}
                 />
-                <span className="text-[10px] text-[#8B98A8] font-mono">{t.week}</span>
-              </div>
-            ))}
+                <Tooltip
+                  content={({ active, payload, label }) => {
+                    if (active && payload && payload.length) {
+                      return (
+                        <div className="bg-[#0A1628] border border-[#2DD4BF]/50 p-2.5 rounded-xl shadow-xl text-xs space-y-1">
+                          <p className="font-bold text-[#F0F6FC]">{label}</p>
+                          <p className="text-[#2DD4BF] font-mono font-semibold">
+                            Approval Rate: {payload[0].value}%
+                          </p>
+                        </div>
+                      )
+                    }
+                    return null
+                  }}
+                />
+                <ReferenceLine
+                  y={62}
+                  stroke="#F59E0B"
+                  strokeDasharray="4 4"
+                  label={{ value: 'Industry Avg 62%', fill: '#F59E0B', fontSize: 10, position: 'insideTopLeft' }}
+                />
+                <ReferenceLine
+                  y={90}
+                  stroke="#34D399"
+                  strokeDasharray="4 4"
+                  label={{ value: 'Target 90%', fill: '#34D399', fontSize: 10, position: 'insideTopRight' }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="rate"
+                  stroke="#2DD4BF"
+                  strokeWidth={2.5}
+                  dot={{ r: 4, fill: '#2DD4BF', stroke: '#0F2040', strokeWidth: 1.5 }}
+                  activeDot={{ r: 6, fill: '#2DD4BF', stroke: '#F0F6FC', strokeWidth: 2 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
         {/* RIGHT CHART — PA Volume Breakdown */}
-        <div className="lg:col-span-5 bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-4">
+        <div className="lg:col-span-5 bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-4 flex flex-col justify-between">
           <div>
             <h2 className="text-sm font-bold text-[#F0F6FC]">PA Status Breakdown (Current Month)</h2>
             <p className="text-xs text-[#8B98A8]">Total 24 Prior Authorizations</p>
           </div>
 
-          <div className="space-y-3 pt-2">
+          <div className="space-y-4 pt-2">
             <div>
               <div className="flex justify-between text-xs mb-1">
                 <span className="text-emerald-400 font-semibold">Approved (19 PAs)</span>
@@ -132,6 +177,10 @@ export default function AnalyticsDashboardPage() {
                 <div className="bg-rose-400 h-full w-[8.3%]" />
               </div>
             </div>
+          </div>
+
+          <div className="text-[11px] text-[#8B98A8] border-t border-[#1E3050] pt-3">
+            96.2% overall first-pass approval across all Texas Medicaid payers.
           </div>
         </div>
       </div>
@@ -202,7 +251,7 @@ export default function AnalyticsDashboardPage() {
         </div>
         <h2 className="text-3xl font-extrabold text-[#F0F6FC]">You saved 18.0 hours this month</h2>
         <p className="text-xs text-[#8B98A8] max-w-xl mx-auto">
-          That’s <strong className="text-[#2DD4BF]">$450 in coordinator labor time</strong> at $25/hr — not including <strong className="text-emerald-400">$9,600 in revenue protected</strong> from avoided prior authorization denials.
+          That’s <strong className="text-[#2DD4BF]">$540 in coordinator labor time</strong> at $30/hr — not including <strong className="text-emerald-400">$9,600 in revenue protected</strong> from avoided prior authorization denials.
         </p>
         <button
           onClick={() => alert('Generating Stakeholder Impact Summary Report...')}
