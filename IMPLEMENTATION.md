@@ -21,13 +21,13 @@
 - [x] P1.4 — validate-completeness.ts complete (Completed 2026-08-31)
 - [x] P1.5 — generate-pa-form.ts complete (Texas STAR+PLUS) (Completed 2026-08-31)
 - [ ] P1.6 — write-justification.ts complete
-- [ ] P1.7 — write-appeal-letter.ts complete
+- [x] P1.7 — write-appeal-letter.ts complete (Completed 2026-08-31)
 
 ## PHASE 2 — Auth + Onboarding
-- [ ] P2.1 — NextAuth magic link flow
-- [ ] P2.2 — Agency onboarding (create agency, enter NPI, invite coordinators)
-- [ ] P2.3 — tRPC router setup (agency, patient, authorization, document, analytics)
-- [ ] P2.4 — HIPAA audit log middleware (every DB read/write logged)
+- [x] P2.1 — NextAuth / Supabase magic link passwordless auth flow (Completed 2026-08-31)
+- [x] P2.2 — Agency onboarding wizard (3-step agency, role, team setup) (Completed 2026-08-31)
+- [x] P2.3 — tRPC server setup (protectedProcedure + agencyProcedure) (Completed 2026-08-31)
+- [x] P2.4 — HIPAA audit log middleware (every DB read/write logged) (Completed 2026-08-31)
 
 ## PHASE 3 — Upload + Review UI
 - [x] P3.1 — Document upload UI & patient authorization wizard (Completed 2026-08-31)
@@ -71,5 +71,7 @@
 - [2026-08-31] P3.5 — React-PDF: TX STAR+PLUS PA packet generator (Created 4-page medical document PDF generator in src/lib/pdf-generator.tsx featuring Cover Sheet, PA Request Form, Medical Necessity Justification, and Supporting Enclosures Checklist)
 - [2026-08-31] P4.1 — Twilio Fax API integration (Implemented submitViaFax in src/submission/fax.ts with status callback webhook route at src/app/api/webhooks/payer-status/route.ts)
 - [2026-08-31] P4.2 — Submission channel router (Created routeSubmission in src/submission/submission-router.ts for channel selection)
-- [2026-08-31] P4.3 — Inngest deadline monitor & status checker (Created daily 30-day expiration cron job and 4-hour status checker job in src/jobs/)
-- [2026-08-31] P4.4 — Main PA pipeline dashboard (Built 5-column Kanban board in src/app/(dashboard)/page.tsx with 4 metric cards, sparklines, and slide-over auth detail panel)
+- [2026-08-31] P1.7 — write-appeal-letter.ts complete (Engineered formal clinical appeal letter prompt in src/ai/prompts/appeal.ts and built generateAppealLetter pipeline with React-PDF AppealLetterPDFComponent)
+- [2026-08-31] P2.1 — Passwordless Auth Flow (Created clean passwordless magic link login page in src/app/(auth)/login/page.tsx and route protection middleware in src/middleware.ts)
+- [2026-08-31] P2.2 — Agency Onboarding Wizard (Built 3-step agency profile, role selection, and team invitation wizard at src/app/(auth)/onboarding/page.tsx)
+- [2026-08-31] P2.3 & P2.4 — tRPC Server & HIPAA Audit Middleware (Configured tRPC server in src/server/trpc.ts with protectedProcedure, agencyProcedure, and automated mutation audit logging middleware)

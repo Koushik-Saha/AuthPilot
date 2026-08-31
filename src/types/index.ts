@@ -81,4 +81,5 @@ export interface Authorization {
   denial_reason?: string
   appeal_letter_s3_key?: string
   created_at: string
+  updated_at?: string
 }

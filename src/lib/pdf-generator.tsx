@@ -417,3 +417,52 @@ export async function generatePAPacketPDF(
   const buffer = await pdf(element).toBuffer()
   return buffer as unknown as Buffer
 }
+
+interface AppealPDFProps {
+  appealText: string
+  patient: Patient
+  agency: Agency
+}
+
+export const AppealLetterPDFComponent: React.FC<AppealPDFProps> = ({ appealText, patient, agency }) => (
+  <Document title={`Appeal_Letter_${patient.medicaid_id}`} author="AuthPilot AI Appeals Engine">
+    <Page size="A4" style={styles.page}>
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.headerTitle}>FORMAL PRIOR AUTHORIZATION APPEAL</Text>
+          <Text style={styles.headerSub}>Texas Medicaid Managed Care Denial Rebuttal</Text>
+        </View>
+        <View>
+          <Text style={styles.logoText}>AuthPilot AI</Text>
+          <Text style={styles.headerSub}>Date: {new Date().toLocaleDateString()}</Text>
+        </View>
+      </View>
+
+      <View style={styles.box}>
+        <Text style={styles.paragraph}>{appealText}</Text>
+      </View>
+
+      <View style={{ marginTop: 20, borderTopWidth: 1, borderTopColor: '#0F2040', paddingTop: 8 }}>
+        <Text style={{ fontFamily: 'Times-Bold' }}>Submitted By: {agency.name}</Text>
+        <Text>Provider NPI: {agency.npi}</Text>
+        <Text>State: {agency.state}</Text>
+      </View>
+
+      <View style={styles.footer}>
+        <Text>AuthPilot Automated Healthcare Appeal Engine</Text>
+        <Text>Page 1 of 1</Text>
+      </View>
+    </Page>
+  </Document>
+)
+
+export async function generateAppealPDF(
+  appealText: string,
+  patient: Patient,
+  agency: Agency
+): Promise<Buffer> {
+  const element = <AppealLetterPDFComponent appealText={appealText} patient={patient} agency={agency} />
+  const buffer = await pdf(element).toBuffer()
+  return buffer as unknown as Buffer
+}
+
