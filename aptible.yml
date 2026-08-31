@@ -1,0 +1,10 @@
+app: authpilot-production
+services:
+  web:
+    command: node .next/standalone/server.js
+    memory: 1024
+    count: 1
+  inngest-worker:
+    command: node src/jobs/worker.js
+    memory: 512
+    count: 1
