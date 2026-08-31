@@ -24,7 +24,7 @@
 - [ ] P1.7 — write-appeal-letter.ts complete
 
 ## PHASE 2 — Auth + Onboarding
-- [ ] P2.1 — Supabase Auth magic link flow
+- [ ] P2.1 — NextAuth magic link flow
 - [ ] P2.2 — Agency onboarding (create agency, enter NPI, invite coordinators)
 - [ ] P2.3 — tRPC router setup (agency, patient, authorization, document, analytics)
 - [ ] P2.4 — HIPAA audit log middleware (every DB read/write logged)
