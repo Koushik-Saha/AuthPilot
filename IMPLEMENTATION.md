@@ -44,9 +44,9 @@
 - [ ] P4.5 — Mailtrap email alerts for deadlines and status changes
 
 ## PHASE 5 — Analytics + Billing
-- [ ] P5.1 — Agency analytics dashboard (first-pass rate, time saved, revenue recovered)
-- [ ] P5.2 — Stripe subscription setup (Starter $299, Growth $599, Complete $899)
-- [ ] P5.3 — Billing portal + upgrade/downgrade flow
+- [x] P5.1 — Agency analytics dashboard (first-pass rate, time saved, revenue recovered) (Completed 2026-08-31)
+- [x] P5.2 — Stripe subscription setup (Starter $299, Growth $599, Complete $899) (Completed 2026-08-31)
+- [x] P5.3 — Billing portal + upgrade/downgrade flow (Completed 2026-08-31)
 - [ ] P5.4 — Monthly PDF report generator (Inngest scheduled job)
 
 ## PHASE 6 — Compliance + Launch
@@ -72,6 +72,5 @@
 - [2026-08-31] P4.1 — Twilio Fax API integration (Implemented submitViaFax in src/submission/fax.ts with status callback webhook route at src/app/api/webhooks/payer-status/route.ts)
 - [2026-08-31] P4.2 — Submission channel router (Created routeSubmission in src/submission/submission-router.ts for channel selection)
 - [2026-08-31] P1.7 — write-appeal-letter.ts complete (Engineered formal clinical appeal letter prompt in src/ai/prompts/appeal.ts and built generateAppealLetter pipeline with React-PDF AppealLetterPDFComponent)
-- [2026-08-31] P2.1 — Passwordless Auth Flow (Created clean passwordless magic link login page in src/app/(auth)/login/page.tsx and route protection middleware in src/middleware.ts)
-- [2026-08-31] P2.2 — Agency Onboarding Wizard (Built 3-step agency profile, role selection, and team invitation wizard at src/app/(auth)/onboarding/page.tsx)
-- [2026-08-31] P2.3 & P2.4 — tRPC Server & HIPAA Audit Middleware (Configured tRPC server in src/server/trpc.ts with protectedProcedure, agencyProcedure, and automated mutation audit logging middleware)
+- [2026-08-31] P5.1 & P5.2 — Agency Analytics Queries & Dashboard UI (Built analytics router in src/server/routers/analytics.ts with getMonthlyStats, getWeeklyTrend, getPayerPerformance, getExpiringAuthorizations, and getTimeSavedEstimate, and created visual dashboard in src/app/(dashboard)/analytics/page.tsx)
+- [2026-08-31] P5.3 — Stripe Subscription Billing & PA Limit Enforcement (Created Stripe client in src/lib/stripe.ts with PLANS config, checkout/portal/webhook API routes, Billing Dashboard in src/app/(dashboard)/billing/page.tsx, PA limit enforcement in authorization router, and scripts/test-stripe-webhook.sh)

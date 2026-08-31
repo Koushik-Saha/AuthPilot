@@ -21,6 +21,18 @@ export const authorizationRouter = router({
     .mutation(async ({ input }) => {
       const payerId = input.payerId as PayerId
 
+      // 0. Check Agency Plan PA Limit Enforcement
+      const agencyCheckRows = await query<Agency>(`SELECT * FROM public.agencies WHERE id = $1`, [input.agencyId])
+      const agencyCheck = agencyCheckRows[0]
+      if (agencyCheck) {
+        const planKey = agencyCheck.plan || 'starter'
+        const limit = planKey === 'starter' ? 30 : planKey === 'growth' ? 150 : null
+
+        if (limit !== null && (agencyCheck.pa_count_this_month || 0) >= limit) {
+          throw new Error("You've reached your plan's monthly prior authorization limit. Upgrade to continue.")
+        }
+      }
+
       // 1. Trigger AI Clinical Extraction
       const extracted = await extractClinicalData({
         documentS3Keys: input.documentS3Keys,
