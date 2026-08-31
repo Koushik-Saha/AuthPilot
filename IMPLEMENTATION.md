@@ -41,7 +41,7 @@
 - [ ] P4.2 — Submission router (picks fax vs portal per payer)
 - [ ] P4.3 — PA pipeline dashboard (kanban: Draft → Submitted → Pending → Approved → Denied)
 - [ ] P4.4 — Inngest jobs: deadline monitor (daily), status checker (4hr), renewal trigger (30d)
-- [ ] P4.5 — Resend email alerts for deadlines and status changes
+- [ ] P4.5 — Mailtrap email alerts for deadlines and status changes
 
 ## PHASE 5 — Analytics + Billing
 - [ ] P5.1 — Agency analytics dashboard (first-pass rate, time saved, revenue recovered)
