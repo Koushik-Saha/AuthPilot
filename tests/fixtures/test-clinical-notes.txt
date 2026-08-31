@@ -1,0 +1,12 @@
+SKILLED NURSING & FACE-TO-FACE ENCOUNTER NOTE
+Patient Name: Maria Gonzalez
+DOB: 06/12/1954
+Date of Visit: 08/10/2026
+
+FACE-TO-FACE ENCOUNTER SUMMARY:
+Patient presented for clinical evaluation regarding functional decline and increased fall frequency at home. Physical examination confirms severe gait ataxia, bilateral knee pain, and decreased upper extremity range of motion.
+
+CLINICAL RECOMMENDATION:
+Patient is appropriate for Texas STAR+PLUS Personal Attendant Services (PAS). Recommending 18 hours per week of personal attendant assistance for 52 weeks to assist with ADLs, personal hygiene, and safety supervision.
+
+ATTENDING PHYSICIAN: Dr. Robert Chen, MD (NPI: 1234567890)

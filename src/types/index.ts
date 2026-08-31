@@ -50,6 +50,7 @@ export interface ExtractedClinicalData {
   requested_services?: RequestedService[]
   care_frequency?: string
   care_start_date?: string
+  care_end_date?: string
   functional_limitations?: string[]
   confidence_scores: Record<string, number>  // field name → 0.0-1.0
   missing_fields: string[]

@@ -1,0 +1,21 @@
+PHYSICIAN ORDERS & PLAN OF CARE (CMS-485)
+Ordering Physician Name: Dr. Robert Chen, MD
+Physician NPI: 1234567890
+Physician Address: 4500 Medical Parkway, Suite 300, Austin, TX 78756
+Physician Phone: (512) 555-0199
+
+PATIENT: Maria Gonzalez
+MEDICAID ID: 9876543210
+EPISODE START DATE: 2026-08-20
+EPISODE END DATE: 2027-08-19
+
+SERVICES PRESCRIBED / REQUESTED:
+1. Personal Attendant Services (PAS) - 18 hours/week for 52 weeks (Procedure Code: S5125)
+   - Assistance with bathing, dressing, meal preparation, light housekeeping, and mobility.
+2. Skilled Nursing (SN) - 1 visit/month for medication management and diabetic foot check.
+
+MEDICAL NECESSITY JUSTIFICATION:
+Patient is a 72-year-old female with severe fibromyalgia, osteoarthritis, and mobility impairment. Patient requires hands-on physical assistance with ADLs (bathing, dressing, transfers) 18 hours per week to remain safely in her home and avoid institutional nursing facility placement.
+
+PHYSICIAN SIGNATURE & DATE:
+Signed electronically by Dr. Robert Chen, MD on 08/18/2026.

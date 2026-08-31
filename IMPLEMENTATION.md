@@ -16,9 +16,9 @@
 
 ## PHASE 1 — AI Extraction Core
 - [x] P1.1 — Payer registry built (star-plus, uhc-texas, molina-texas, aetna-texas, humana-texas) (Completed 2026-08-31)
-- [ ] P1.2 — Claude extraction prompt engineered and tested against 3 sample documents
-- [ ] P1.3 — extract-clinical-data.ts complete with confidence scoring
-- [ ] P1.4 — validate-completeness.ts complete
+- [x] P1.2 — Claude extraction prompt engineered and tested against 3 sample documents (Completed 2026-08-31)
+- [x] P1.3 — extract-clinical-data.ts complete with confidence scoring (Completed 2026-08-31)
+- [x] P1.4 — validate-completeness.ts complete (Completed 2026-08-31)
 - [ ] P1.5 — generate-pa-form.ts complete (Texas STAR+PLUS)
 - [ ] P1.6 — write-justification.ts complete
 - [ ] P1.7 — write-appeal-letter.ts complete
@@ -63,3 +63,6 @@
 - [2026-08-31] P0.4 — Database schema migrations written and applied (Created 8 SQL migrations for agencies, users, patients, documents, authorizations, submissions, audit_log, and indexes in database/migrations/, and executed all 8 migrations on live Neon PostgreSQL database)
 - [2026-08-31] P0.5 — Row-Level Security policies written and tested (Implemented HIPAA-compliant RLS policies, immutable audit_log policies, document access audit trigger, and verification script in database/test-rls.sql)
 - [2026-08-31] P1.1 — Payer registry built (star-plus, uhc-texas, molina-texas, aetna-texas, humana-texas) (Created payer types, full Texas STAR+PLUS rules, UHC, Molina, Aetna, Humana configs, registry helper functions, and 8 Jest unit tests)
+- [2026-08-31] P1.2 — Claude extraction prompt engineered and tested against 3 sample documents (Engineered >600 word clinical extraction system prompt in src/ai/prompts/extraction.ts with confidence scoring rules and pitfall warnings)
+- [2026-08-31] P1.3 — extract-clinical-data.ts complete with confidence scoring (Built multi-document extraction pipeline powered by Claude 3.5 Sonnet, ICD-10 normalization, date parsing, Neon DB updates, and HIPAA audit logging)
+- [2026-08-31] P1.4 — validate-completeness.ts complete (Created payer completeness validator with actionable human-readable coordinator warning messages)

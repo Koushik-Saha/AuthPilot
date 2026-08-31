@@ -1,0 +1,25 @@
+PATIENT DEMOGRAPHICS & OASIS ASSESSMENT (M0020-M0090)
+Patient Name: Maria Gonzalez
+Date of Birth: 06/12/1954
+Medicaid ID: 9876543210
+Medicare ID: 1EG4-TE5-MK92
+SSN (Last 4): 4321
+Assessment Date: 2026-08-15
+State: Texas (TX)
+
+CLINICAL DIAGNOSES (M1021 / M1023)
+Primary Diagnosis: M79.7 - Fibromyalgia with severe polyarthralgia
+Secondary Diagnoses:
+1. I10 - Essential (primary) hypertension
+2. E11.9 - Type 2 diabetes mellitus without complications
+3. M19.011 - Primary osteoarthritis, right shoulder
+
+FUNCTIONAL ADL / IADL LIMITATIONS (M1800-M1860)
+M1810 Bathing: 3 - Requires physical assistance of another person to bathe body.
+M1820 Dressing: 2 - Requires assistance of another person to obtain and put on clothes.
+M1830 Transferring: 2 - Able to bear weight but requires assistance/supervision to transfer.
+M1860 Ambulation/Locomotion: 3 - Requires human assistance and rolling walker at all times.
+
+HOMEBOUND STATUS (M0110)
+Homebound: Yes
+Homebound Criteria Rationale: Patient requires 2-person physical assistance and rolling walker for all ambulation. Leaving home requires considerable and taxing effort due to severe dyspnea, polyarthralgia, and high fall risk.

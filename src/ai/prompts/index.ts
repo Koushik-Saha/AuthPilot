@@ -1,1 +1,1 @@
-// AI prompts exports
+export * from './extraction'
