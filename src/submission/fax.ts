@@ -21,11 +21,17 @@ export interface FaxResult {
   cost_estimate_usd: number
 }
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID || 'AC_dummy_account_sid'
-const authToken = process.env.TWILIO_AUTH_TOKEN || 'dummy_auth_token'
-const twilioFaxNumber = process.env.TWILIO_FAX_NUMBER || '+18005550199'
+function getTwilioClient() {
+  const accountSid = process.env.TWILIO_ACCOUNT_SID || 'AC00000000000000000000000000000000'
+  const authToken = process.env.TWILIO_AUTH_TOKEN || 'dummy_auth_token'
+  try {
+    return twilio(accountSid, authToken)
+  } catch {
+    return null
+  }
+}
 
-const client = twilio(accountSid, authToken)
+const twilioFaxNumber = process.env.TWILIO_FAX_NUMBER || '+18005550199'
 
 /**
  * Submits a prior authorization packet PDF via Twilio Fax API.
@@ -42,7 +48,8 @@ export async function submitViaFax(params: FaxSubmissionParams): Promise<FaxResu
   let status: 'queued' | 'failed' = 'queued'
 
   try {
-    if (process.env.TWILIO_ACCOUNT_SID && !process.env.TWILIO_ACCOUNT_SID.includes('your_twilio')) {
+    const client = getTwilioClient()
+    if (client && process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_ACCOUNT_SID.startsWith('AC')) {
       const fax = await (client as any).fax.v1.faxes.create({
         to: faxTo,
         from: twilioFaxNumber,
@@ -53,7 +60,6 @@ export async function submitViaFax(params: FaxSubmissionParams): Promise<FaxResu
     }
   } catch (err: any) {
     console.error('[Twilio Fax Transmission Error]:', err?.message || err)
-    // Graceful fallback for sandbox/test environments
   }
 
   // 1. Insert row into public.submissions table
