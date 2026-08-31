@@ -335,7 +335,7 @@ export default function Home() {
           <Link href="/demo" className="hover:text-[#F0F6FC]">Sales Demo (/demo)</Link>
           <Link href="/login" className="hover:text-[#F0F6FC]">Coordinator Login</Link>
           <Link href="/onboarding" className="hover:text-[#F0F6FC]">Agency Onboarding</Link>
-          <a href="https://github.com/Koushik-Saha/AuthPilot.git" target="_blank" rel="noreferrer" className="hover:text-[#F0F6FC]">GitHub Repo</a>
+          <Link href="/pricing" className="hover:text-[#F0F6FC]">Pricing</Link>
         </div>
         <p>© 2026 AuthPilot, LLC. All Rights Reserved. Protected under HIPAA Privacy &amp; Security Rules (45 CFR Parts 160/164).</p>
       </footer>
