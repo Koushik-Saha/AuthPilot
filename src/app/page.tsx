@@ -28,7 +28,10 @@ export default function Home() {
             <Link href="/pricing" className="hover:text-[#2DD4BF] transition">Pricing</Link>
           </div>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
+            <a href="#get-started" className="text-xs text-[#8B98A8] hover:text-[#F0F6FC] transition hover:underline">
+              Book a Demo
+            </a>
             <Link
               href="/demo"
               className="bg-[#162035] hover:bg-[#2A4060] text-[#2DD4BF] border border-[#2A4060] text-xs font-bold px-4 py-2.5 rounded-xl transition"
@@ -103,6 +106,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SOCIAL PROOF BANNER STRIP */}
+      <div className="bg-white/[0.03] border-y border-[#1E3050]/80 py-3 px-6 text-center">
+        <p className="text-[12px] font-mono text-[#2DD4BF] tracking-[0.08em] uppercase">
+          Trusted by home care agencies across Texas <span className="text-[#8B98A8] mx-2">·</span> Protected under HIPAA 45 CFR Parts 160/164 <span className="text-[#8B98A8] mx-2">·</span> CMS FHIR PA Mandate compliant
+        </p>
+      </div>
 
       {/* QUICK ACCESS MODULES GRID */}
       <section id="features" className="py-16 px-6 bg-[#0D1B2E] border-y border-[#1E3050]">
@@ -326,6 +336,40 @@ export default function Home() {
               <div className="text-3xl font-extrabold text-emerald-400 my-1">${revenueProtected.toLocaleString()}</div>
               <div className="text-[10px] text-[#8B98A8]">@ $3,200 avg claim value</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BOTTOM CONVERSION CTA SECTION */}
+      <section id="get-started" className="bg-[#0F2040] border-y border-white/10 py-16 px-6 text-center">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <div className="text-xs font-mono text-[#2DD4BF] uppercase tracking-widest">
+            GET STARTED TODAY
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F0F6FC] tracking-tight">
+            Ready to cut your PA time by 75%?
+          </h2>
+          <p className="text-sm text-[#8B98A8] max-w-xl mx-auto leading-relaxed">
+            Start with 5 free prior authorizations. No credit card required. Setup takes 10 minutes.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <Link
+              href="/onboarding"
+              className="w-full sm:w-auto bg-[#2DD4BF] hover:bg-[#1A8C80] text-[#0A1628] font-bold text-sm px-8 py-4 rounded-xl shadow-xl shadow-[#2DD4BF]/20 transition transform hover:-translate-y-0.5"
+            >
+              Start Free Trial →
+            </Link>
+            <Link
+              href="/demo"
+              className="w-full sm:w-auto bg-[#162035] hover:bg-[#2A4060] text-[#F0F6FC] border border-[#1E3050] font-semibold text-sm px-8 py-4 rounded-xl transition"
+            >
+              Watch 2-Minute Demo
+            </Link>
+          </div>
+
+          <div className="text-xs text-[#8B98A8] pt-2 font-mono">
+            🔒 HIPAA Compliant <span className="mx-1.5">·</span> BAA Included <span className="mx-1.5">·</span> No Setup Fees <span className="mx-1.5">·</span> Cancel Anytime
           </div>
         </div>
       </section>
