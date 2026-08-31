@@ -4,6 +4,8 @@ export type SubmissionChannel = 'fax' | 'portal' | 'fhir' | 'email'
 export type DocumentType = 'oasis' | 'physician_orders' | 'clinical_notes' | 'denial_letter' | 'care_plan'
 export type PayerId = 'star-plus' | 'uhc-texas' | 'molina-texas' | 'aetna-texas' | 'humana-texas'
 
+export * from './payer'
+
 export interface Agency {
   id: string
   name: string
