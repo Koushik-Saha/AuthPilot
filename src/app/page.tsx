@@ -22,7 +22,7 @@ export default function Home() {
 
           <div className="hidden md:flex items-center space-x-6 text-xs font-medium text-[#8B98A8]">
             <a href="#features" className="hover:text-[#2DD4BF] transition">Features</a>
-            <a href="#how-to-run" className="hover:text-[#2DD4BF] transition">How to Run</a>
+            <a href="#how-it-works" className="hover:text-[#2DD4BF] transition">How It Works</a>
             <a href="#roi-calculator" className="hover:text-[#2DD4BF] transition">ROI Calculator</a>
             <Link href="/analytics" className="hover:text-[#2DD4BF] transition">Analytics</Link>
             <Link href="/pricing" className="hover:text-[#2DD4BF] transition">Pricing</Link>
@@ -218,70 +218,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW TO RUN THE PROJECT SECTION */}
-      <section id="how-to-run" className="py-16 px-6">
+      {/* HOW IT WORKS SECTION */}
+      <section id="how-it-works" className="py-16 px-6">
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <h2 className="text-xs font-mono text-[#2DD4BF] uppercase tracking-widest">Developer &amp; Agency Guide</h2>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#F0F6FC]">How to Run AuthPilot Locally or Deploy</h3>
+            <h2 className="text-xs font-mono text-[#2DD4BF] uppercase tracking-widest">HOW IT WORKS</h2>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#F0F6FC]">
+              From Clinical Documents to Approved PA in 3 Steps
+            </h3>
+            <p className="text-xs sm:text-sm text-[#8B98A8] max-w-xl mx-auto">
+              No training required. No EHR integration needed. Works with any home health agency in Texas.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Step 1: Clone & Setup */}
-            <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#0A1628] font-bold flex items-center justify-center text-xs">1</span>
-                <h4 className="text-sm font-bold text-[#F0F6FC]">Install Dependencies &amp; Env Vars</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Step 1 Card */}
+            <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-4 flex flex-col justify-between hover:border-[#2DD4BF]/50 transition">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="w-8 h-8 rounded-full bg-[#2DD4BF] text-[#0A1628] font-extrabold flex items-center justify-center text-sm">1</span>
+                  <span className="text-2xl">📄</span>
+                </div>
+                <h4 className="text-base font-bold text-[#F0F6FC]">Upload Your Clinical Documents</h4>
+                <p className="text-xs text-[#8B98A8] leading-relaxed">
+                  Drag and drop your OASIS assessment, CMS-485 physician orders, and clinical notes. AuthPilot accepts any PDF — no special format required.
+                </p>
               </div>
-              <p className="text-xs text-[#8B98A8]">
-                Ensure Node.js 20+ is installed. Clone the repository and configure credentials in <code>.env.local</code>.
-              </p>
-              <pre className="bg-[#0A1628] border border-[#1E3050] p-3 rounded-xl text-xs font-mono text-[#2DD4BF] overflow-x-auto">
-                npm install
-              </pre>
             </div>
 
-            {/* Step 2: Run Local Dev Server */}
-            <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#0A1628] font-bold flex items-center justify-center text-xs">2</span>
-                <h4 className="text-sm font-bold text-[#F0F6FC]">Start Next.js Development Server</h4>
+            {/* Step 2 Card */}
+            <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-4 flex flex-col justify-between hover:border-[#2DD4BF]/50 transition">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="w-8 h-8 rounded-full bg-[#2DD4BF] text-[#0A1628] font-extrabold flex items-center justify-center text-sm">2</span>
+                  <span className="text-2xl">🧠</span>
+                </div>
+                <h4 className="text-base font-bold text-[#F0F6FC]">AI Generates Your PA Packet in 90 Seconds</h4>
+                <p className="text-xs text-[#8B98A8] leading-relaxed">
+                  Claude AI reads your documents, extracts all required fields, writes the medical necessity justification, and pre-fills the correct form for your specific payer — TX STAR+PLUS, UHC, Molina, or Aetna.
+                </p>
               </div>
-              <p className="text-xs text-[#8B98A8]">
-                Launch dev server and open <code>http://localhost:3000</code> in your web browser.
-              </p>
-              <pre className="bg-[#0A1628] border border-[#1E3050] p-3 rounded-xl text-xs font-mono text-[#2DD4BF] overflow-x-auto">
-                npm run dev
-              </pre>
             </div>
 
-            {/* Step 3: Run Jest Test Suite */}
-            <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#0A1628] font-bold flex items-center justify-center text-xs">3</span>
-                <h4 className="text-sm font-bold text-[#F0F6FC]">Execute Unit &amp; Integration Tests</h4>
+            {/* Step 3 Card */}
+            <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-4 flex flex-col justify-between hover:border-[#2DD4BF]/50 transition">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="w-8 h-8 rounded-full bg-[#2DD4BF] text-[#0A1628] font-extrabold flex items-center justify-center text-sm">3</span>
+                  <span className="text-2xl">✅</span>
+                </div>
+                <h4 className="text-base font-bold text-[#F0F6FC]">Review, Approve, and Submit</h4>
+                <p className="text-xs text-[#8B98A8] leading-relaxed">
+                  Your coordinator reviews the generated packet on a split screen, edits if needed, then clicks Approve. AuthPilot faxes it directly to the payer. You get a confirmation when it&apos;s delivered.
+                </p>
               </div>
-              <p className="text-xs text-[#8B98A8]">
-                Run Jest unit tests for payer rules, Claude extraction, and PA form generation.
-              </p>
-              <pre className="bg-[#0A1628] border border-[#1E3050] p-3 rounded-xl text-xs font-mono text-[#2DD4BF] overflow-x-auto">
-                npm test
-              </pre>
             </div>
+          </div>
 
-            {/* Step 4: Run E2E System Test */}
-            <div className="bg-[#0F2040] border border-[#1E3050] rounded-2xl p-6 space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#0A1628] font-bold flex items-center justify-center text-xs">4</span>
-                <h4 className="text-sm font-bold text-[#F0F6FC]">Run Full Pre-Walkin E2E Test</h4>
-              </div>
-              <p className="text-xs text-[#8B98A8]">
-                Run full pipeline test verifying document extraction, PDF rendering, and Twilio fax routing.
-              </p>
-              <pre className="bg-[#0A1628] border border-[#1E3050] p-3 rounded-xl text-xs font-mono text-[#2DD4BF] overflow-x-auto">
-                npx tsx scripts/e2e-test.ts
-              </pre>
-            </div>
+          <div className="text-center pt-4">
+            <p className="text-xs text-[#8B98A8] font-medium">
+              Average coordinator review time: <strong className="text-[#2DD4BF]">3 minutes</strong>. Average payer response: <strong className="text-[#2DD4BF]">2.4 days</strong> vs the 7-day CMS cap.
+            </p>
           </div>
         </div>
       </section>
