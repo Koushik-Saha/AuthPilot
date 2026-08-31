@@ -87,3 +87,4 @@ AuthPilot — AI-Powered Prior Authorization Engine for Home Health Care Agencie
 - [2026-08-31] P5.1 & P5.2 — Agency Analytics Queries & Dashboard UI
 - [2026-08-31] P5.3 — Stripe Subscription Billing & PA Limit Enforcement
 - [2026-08-31] P6.1 — P6.4 — HIPAA Compliance Audit, BAA Template, Aptible Config, Pre-Deploy Script, E2E Test, and /demo Sales Route
+- [2026-08-31] Pricing Page — Transparent Pricing Page created at src/app/pricing/page.tsx (3 tier cards, ROI proof bar, interactive FAQ accordion, and navigation link updated)

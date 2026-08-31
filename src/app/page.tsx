@@ -25,7 +25,7 @@ export default function Home() {
             <a href="#how-to-run" className="hover:text-[#2DD4BF] transition">How to Run</a>
             <a href="#roi-calculator" className="hover:text-[#2DD4BF] transition">ROI Calculator</a>
             <Link href="/analytics" className="hover:text-[#2DD4BF] transition">Analytics</Link>
-            <Link href="/billing" className="hover:text-[#2DD4BF] transition">Pricing</Link>
+            <Link href="/pricing" className="hover:text-[#2DD4BF] transition">Pricing</Link>
           </div>
 
           <div className="flex items-center space-x-3">
