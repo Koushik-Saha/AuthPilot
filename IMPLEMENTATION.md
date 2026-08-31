@@ -7,10 +7,10 @@
 
 ## PHASE 0 — Foundation
 - [x] P0.1 — Next.js project scaffold + all dependencies installed (Completed 2026-08-31)
-- [ ] P0.2 — Supabase project connected + environment variables configured
+- [x] P0.2 — Supabase project connected + environment variables configured (Completed 2026-08-31)
 - [x] P0.3 — Brand identity: logo, colors, typography system created (Completed 2026-08-31)
-- [ ] P0.4 — Database schema migrations written and applied
-- [ ] P0.5 — Row-Level Security policies written and tested
+- [x] P0.4 — Database schema migrations written and applied (Completed 2026-08-31)
+- [x] P0.5 — Row-Level Security policies written and tested (Completed 2026-08-31)
 - [ ] P0.6 — S3 bucket configured with server-side AES-256 encryption
 - [ ] P0.7 — Anthropic HIPAA BAA initiated (note: manual process, flag when done)
 
@@ -59,3 +59,6 @@
 ## Completed Log
 - [2026-08-31] P0.1 — Next.js project scaffold + all dependencies installed (Scaffolded Next.js 14 app with TypeScript and Tailwind, installed all dependencies, created folder structure and TypeScript type definitions)
 - [2026-08-31] P0.3 — Brand identity: logo, colors, typography system created (Programmatically generated brand assets with Sharp into public/brand/, built design-tokens.ts, updated tailwind & globals.css theme tokens, created Logo.tsx component, and configured layout.tsx)
+- [2026-08-31] P0.2 — Supabase project connected + environment variables configured (Created .env.local and .env.example, built createBrowserClient, createServerClient, and supabaseAdmin in src/lib/supabase.ts)
+- [2026-08-31] P0.4 — Database schema migrations written and applied (Created 8 SQL migrations for agencies, users, patients, documents, authorizations, submissions, audit_log, and indexes in database/migrations/)
+- [2026-08-31] P0.5 — Row-Level Security policies written and tested (Implemented HIPAA-compliant RLS policies, immutable audit_log policies, document access audit trigger, and verification script in database/test-rls.sql)
