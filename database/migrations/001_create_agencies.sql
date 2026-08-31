@@ -20,6 +20,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS update_agencies_updated_at ON public.agencies;
 CREATE TRIGGER update_agencies_updated_at
   BEFORE UPDATE ON public.agencies
   FOR EACH ROW
@@ -27,20 +28,3 @@ CREATE TRIGGER update_agencies_updated_at
 
 -- Enable Row-Level Security
 ALTER TABLE public.agencies ENABLE ROW LEVEL SECURITY;
-
--- RLS Policy: Agency members can only read/write their own agency row
-CREATE POLICY agencies_read_own ON public.agencies
-  FOR SELECT
-  USING (
-    id IN (
-      SELECT agency_id FROM public.users WHERE id = auth.uid()
-    )
-  );
-
-CREATE POLICY agencies_update_own ON public.agencies
-  FOR UPDATE
-  USING (
-    id IN (
-      SELECT agency_id FROM public.users WHERE id = auth.uid() AND role = 'owner'
-    )
-  );

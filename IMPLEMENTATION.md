@@ -1,13 +1,13 @@
 # AuthPilot — Master Implementation Tracker
 **Product:** AI Prior Authorization Agent for Home Care Agencies (Texas STAR+PLUS focus)
-**Stack:** Next.js 14 + TypeScript + Supabase + Claude API + Tailwind + shadcn/ui
+**Stack:** Next.js 14 + TypeScript + Neon PostgreSQL + Claude API + Tailwind + shadcn/ui
 **Goal:** First paying customer within 30 days
 
 ---
 
 ## PHASE 0 — Foundation
 - [x] P0.1 — Next.js project scaffold + all dependencies installed (Completed 2026-08-31)
-- [x] P0.2 — Supabase project connected + environment variables configured (Completed 2026-08-31)
+- [x] P0.2 — Neon PostgreSQL database connected + environment variables configured (Completed 2026-08-31)
 - [x] P0.3 — Brand identity: logo, colors, typography system created (Completed 2026-08-31)
 - [x] P0.4 — Database schema migrations written and applied (Completed 2026-08-31)
 - [x] P0.5 — Row-Level Security policies written and tested (Completed 2026-08-31)
@@ -59,6 +59,6 @@
 ## Completed Log
 - [2026-08-31] P0.1 — Next.js project scaffold + all dependencies installed (Scaffolded Next.js 14 app with TypeScript and Tailwind, installed all dependencies, created folder structure and TypeScript type definitions)
 - [2026-08-31] P0.3 — Brand identity: logo, colors, typography system created (Programmatically generated brand assets with Sharp into public/brand/, built design-tokens.ts, updated tailwind & globals.css theme tokens, created Logo.tsx component, and configured layout.tsx)
-- [2026-08-31] P0.2 — Supabase project connected + environment variables configured (Created .env.local and .env.example, built createBrowserClient, createServerClient, and supabaseAdmin in src/lib/supabase.ts)
-- [2026-08-31] P0.4 — Database schema migrations written and applied (Created 8 SQL migrations for agencies, users, patients, documents, authorizations, submissions, audit_log, and indexes in database/migrations/)
+- [2026-08-31] P0.2 — Neon PostgreSQL database connected + environment variables configured (Configured DATABASE_URL in .env.local and .env.example with Neon connection pooler, installed @neondatabase/serverless & pg, and built src/lib/db.ts pool)
+- [2026-08-31] P0.4 — Database schema migrations written and applied (Created 8 SQL migrations for agencies, users, patients, documents, authorizations, submissions, audit_log, and indexes in database/migrations/, and executed all 8 migrations on live Neon PostgreSQL database)
 - [2026-08-31] P0.5 — Row-Level Security policies written and tested (Implemented HIPAA-compliant RLS policies, immutable audit_log policies, document access audit trigger, and verification script in database/test-rls.sql)

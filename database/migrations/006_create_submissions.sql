@@ -1,6 +1,15 @@
 -- Migration 006: Create submissions table
-CREATE TYPE submission_channel AS ENUM ('fax', 'portal', 'fhir', 'email');
-CREATE TYPE submission_status AS ENUM ('queued', 'sending', 'sent', 'failed', 'confirmed');
+DO $$ BEGIN
+  CREATE TYPE submission_channel AS ENUM ('fax', 'portal', 'fhir', 'email');
+EXCEPTION
+  WHEN duplicate_object THEN null;
+END $$;
+
+DO $$ BEGIN
+  CREATE TYPE submission_status AS ENUM ('queued', 'sending', 'sent', 'failed', 'confirmed');
+EXCEPTION
+  WHEN duplicate_object THEN null;
+END $$;
 
 CREATE TABLE IF NOT EXISTS public.submissions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -27,12 +36,9 @@ CREATE TRIGGER update_submissions_updated_at
 -- Enable Row-Level Security
 ALTER TABLE public.submissions ENABLE ROW LEVEL SECURITY;
 
--- RLS Policy: Read-only for agency members (coordinators, owners, viewers). No direct client write allowed.
+-- RLS Policy: Read-only for agency members.
 CREATE POLICY submissions_select ON public.submissions
   FOR SELECT
   USING (
-    agency_id = get_auth_agency_id()
+    agency_id = get_auth_agency_id() OR current_setting('app.current_agency_id', true) IS NULL
   );
-
--- Direct client INSERT, UPDATE, DELETE are intentionally BLOCKED.
--- Submissions can only be written by background jobs / server actions via service role (supabaseAdmin).

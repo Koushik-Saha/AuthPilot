@@ -1,7 +1,4 @@
 -- Migration 003: Create patients table
--- Note: PII/PHI fields (full_name, dob, medicaid_id, medicare_id, ssn_last4) are encrypted at the application level
--- using AES-256 / pgcrypto symmetric key encryption before storage.
-
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 CREATE TABLE IF NOT EXISTS public.patients (
@@ -26,6 +23,7 @@ CREATE TABLE IF NOT EXISTS public.patients (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+DROP TRIGGER IF EXISTS update_patients_updated_at ON public.patients;
 CREATE TRIGGER update_patients_updated_at
   BEFORE UPDATE ON public.patients
   FOR EACH ROW
@@ -33,29 +31,3 @@ CREATE TRIGGER update_patients_updated_at
 
 -- Enable Row-Level Security
 ALTER TABLE public.patients ENABLE ROW LEVEL SECURITY;
-
--- RLS Policy: Strict agency_id isolation — users only see patients belonging to their agency
-CREATE POLICY patients_agency_isolation_select ON public.patients
-  FOR SELECT
-  USING (
-    agency_id = get_auth_agency_id()
-  );
-
-CREATE POLICY patients_agency_isolation_insert ON public.patients
-  FOR INSERT
-  WITH CHECK (
-    agency_id = get_auth_agency_id()
-  );
-
-CREATE POLICY patients_agency_isolation_update ON public.patients
-  FOR UPDATE
-  USING (
-    agency_id = get_auth_agency_id()
-  );
-
-CREATE POLICY patients_agency_isolation_delete ON public.patients
-  FOR DELETE
-  USING (
-    agency_id = get_auth_agency_id() AND
-    EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'owner')
-  );

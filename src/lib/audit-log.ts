@@ -1,4 +1,4 @@
-import { supabaseAdmin } from './supabase'
+import { query } from './db'
 
 export interface LogAuditEventParams {
   action: string
@@ -12,7 +12,7 @@ export interface LogAuditEventParams {
 }
 
 /**
- * Log a HIPAA-compliant audit event to the immutable audit_log table.
+ * Log a HIPAA-compliant audit event to the immutable audit_log table in Neon PostgreSQL.
  * Guaranteed to never throw errors to ensure main application execution is never disrupted.
  */
 export async function logAuditEvent(params: LogAuditEventParams): Promise<void> {
@@ -32,20 +32,20 @@ export async function logAuditEvent(params: LogAuditEventParams): Promise<void> 
       }
     }
 
-    const { error } = await supabaseAdmin.from('audit_log').insert({
-      agency_id: params.agencyId || null,
-      user_id: params.userId || null,
-      action: params.action,
-      resource_type: params.resourceType,
-      resource_id: params.resourceId,
-      ip_address: ipAddress,
-      user_agent: userAgent,
-    })
-
-    if (error) {
-      console.error('[HIPAA Audit Log] Failed to write audit record:', error.message)
-    }
-  } catch (err) {
-    console.error('[HIPAA Audit Log] Exception caught while logging audit event:', err)
+    await query(
+      `INSERT INTO public.audit_log (agency_id, user_id, action, resource_type, resource_id, ip_address, user_agent)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+      [
+        params.agencyId || null,
+        params.userId || null,
+        params.action,
+        params.resourceType,
+        params.resourceId,
+        ipAddress,
+        userAgent,
+      ]
+    )
+  } catch (err: any) {
+    console.error('[HIPAA Audit Log] Exception caught while logging audit event:', err?.message || err)
   }
 }
