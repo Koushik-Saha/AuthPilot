@@ -30,17 +30,17 @@
 - [ ] P2.4 — HIPAA audit log middleware (every DB read/write logged)
 
 ## PHASE 3 — Upload + Review UI
-- [ ] P3.1 — Document upload UI (drag-drop, S3, progress indicator)
+- [x] P3.1 — Document upload UI & patient authorization wizard (Completed 2026-08-31)
 - [ ] P3.2 — Extraction review screen (shows extracted fields, confidence, correction UI)
 - [ ] P3.3 — Patient record creation from confirmed extraction
 - [x] P3.4 — Pre-submission PA review screen (generated form preview, approval button) (Completed 2026-08-31)
 - [x] P3.5 — React-PDF: TX STAR+PLUS PA packet generator (Completed 2026-08-31)
 
 ## PHASE 4 — Submission + Tracking
-- [ ] P4.1 — Twilio Fax API integration
-- [ ] P4.2 — Submission router (picks fax vs portal per payer)
-- [ ] P4.3 — PA pipeline dashboard (kanban: Draft → Submitted → Pending → Approved → Denied)
-- [ ] P4.4 — Inngest jobs: deadline monitor (daily), status checker (4hr), renewal trigger (30d)
+- [x] P4.1 — Twilio Fax API integration (Completed 2026-08-31)
+- [x] P4.2 — Submission router (picks fax vs portal per payer) (Completed 2026-08-31)
+- [x] P4.3 — PA pipeline dashboard (kanban: Draft → Submitted → Pending → Approved → Denied) (Completed 2026-08-31)
+- [x] P4.4 — Inngest jobs: deadline monitor (daily), status checker (4hr), renewal trigger (30d) (Completed 2026-08-31)
 - [ ] P4.5 — Mailtrap email alerts for deadlines and status changes
 
 ## PHASE 5 — Analytics + Billing
@@ -66,5 +66,10 @@
 - [2026-08-31] P1.2 — Claude extraction prompt engineered and tested against 3 sample documents (Engineered >600 word clinical extraction system prompt in src/ai/prompts/extraction.ts with confidence scoring rules and pitfall warnings)
 - [2026-08-31] P1.3 — extract-clinical-data.ts complete with confidence scoring (Built multi-document extraction pipeline powered by Claude 3.5 Sonnet, ICD-10 normalization, date parsing, Neon DB updates, and HIPAA audit logging)
 - [2026-08-31] P1.5 — generate-pa-form.ts complete (Texas STAR+PLUS) (Built PA form generator producing PAFormFields JSON and 500+ word clinical medical necessity narrative, saved to Neon DB with HIPAA audit logging)
+- [2026-08-31] P3.1 — Document upload UI & patient authorization wizard (Created 3-step wizard in src/app/(dashboard)/patients/new/page.tsx with multi-file drag-and-drop encloser upload)
 - [2026-08-31] P3.4 — Pre-submission PA review screen (Created 2-column pre-submission review screen at src/app/(dashboard)/authorizations/[id]/review/page.tsx with confidence indicators, warning boxes, editable justification text, and time saved metrics)
 - [2026-08-31] P3.5 — React-PDF: TX STAR+PLUS PA packet generator (Created 4-page medical document PDF generator in src/lib/pdf-generator.tsx featuring Cover Sheet, PA Request Form, Medical Necessity Justification, and Supporting Enclosures Checklist)
+- [2026-08-31] P4.1 — Twilio Fax API integration (Implemented submitViaFax in src/submission/fax.ts with status callback webhook route at src/app/api/webhooks/payer-status/route.ts)
+- [2026-08-31] P4.2 — Submission channel router (Created routeSubmission in src/submission/submission-router.ts for channel selection)
+- [2026-08-31] P4.3 — Inngest deadline monitor & status checker (Created daily 30-day expiration cron job and 4-hour status checker job in src/jobs/)
+- [2026-08-31] P4.4 — Main PA pipeline dashboard (Built 5-column Kanban board in src/app/(dashboard)/page.tsx with 4 metric cards, sparklines, and slide-over auth detail panel)
