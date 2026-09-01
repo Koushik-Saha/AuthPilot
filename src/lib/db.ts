@@ -1,12 +1,12 @@
 import { Pool } from 'pg'
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://neondb_owner:npg_2pkryCJv5EjY@ep-solitary-mode-ae3b70mu-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require'
+const connectionString = process.env.DATABASE_URL
 
 export const pool = new Pool({
-  connectionString,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  connectionString: connectionString || 'postgresql://localhost:5432/authpilot',
+  ssl: connectionString && (connectionString.includes('sslmode=require') || connectionString.includes('neon.tech'))
+    ? { rejectUnauthorized: false }
+    : undefined,
 })
 
 export async function query<T = any>(text: string, params?: any[]): Promise<T[]> {
